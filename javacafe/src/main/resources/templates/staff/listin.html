@@ -75,7 +75,7 @@
 						</tbody>
 					</table>
 					<div class="float-end" style="padding: 15px; margin: auto">
-						<ul class="pagination flex-wrap">
+						<ul class="pagination pagination2 flex-wrap">
 							<li class="page-item" th:if="${responseDTO.prev}">
 								<a class="page-link" th:data-num="${responseDTO.start -1}">Previous</a>
 							</li>
@@ -124,7 +124,7 @@
 	<script th:src="@{/js/scripts.js}"></script>
 
 	<script layout:fragment="script" th:inline="javascript">
-	 document.querySelector(".pagination").addEventListener("click", function (e) {
+	 document.querySelector(".pagination2").addEventListener("click", function (e) {
 	        e.preventDefault()
 	        e.stopPropagation()
 
@@ -149,7 +149,7 @@
 	        e.preventDefault()
 	        e.stopPropagation()
 
-	        self.location ='/staff/list'
+	        self.location ='/staff/listin'
 
 	    },false)
 	    

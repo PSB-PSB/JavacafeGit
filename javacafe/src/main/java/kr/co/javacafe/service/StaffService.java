@@ -18,5 +18,9 @@ public interface StaffService {
 	
 	PageResponseDTO<StaffDTO> list(PageRequestDTO pageRequestDTO);
 	
+	PageResponseDTO<StaffDTO> listin(PageRequestDTO pageRequestDTO);
+	
+	PageResponseDTO<StaffDTO> listout(PageRequestDTO pageRequestDTO);
+	
 	PageResponseDTO<StaffImageDTO> listWithAll(PageRequestDTO pageRequestDTO);
 }

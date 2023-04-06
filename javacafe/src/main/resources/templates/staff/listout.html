@@ -79,11 +79,7 @@
 								<a class="page-link" th:data-num="${responseDTO.start -1}">Previous</a>
 							</li>
 							
-							<th:block th:each="i: ${#numbers.sequence(responseDTO.start, responseDTO.end)}">
-								<li th:class="${responseDTO.page == i}?'page-item active':'page-item'">
-									<a class="page-link" th:data-num="${i}">[[${i}]]</a>
-								</li>
-							</th:block>
+							
 							
 							<li class="page-item" th:if="${responseDTO.next}">
 								<a class="page-link" th:data-num="${responseDTO.end +1}">Next</a>
@@ -148,7 +144,7 @@
 	        e.preventDefault()
 	        e.stopPropagation()
 
-	        self.location ='/staff/list'
+	        self.location ='/staff/listout'
 
 	    },false)
 	    

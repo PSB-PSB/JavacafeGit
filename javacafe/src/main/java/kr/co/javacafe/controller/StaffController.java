@@ -37,14 +37,14 @@ public class StaffController {
 	}
 	@GetMapping("/listin")
 	public void listin(PageRequestDTO pageRequestDTO, Model model) {
-		PageResponseDTO<StaffDTO> responseDTO = staffService.list(pageRequestDTO);
+		PageResponseDTO<StaffDTO> responseDTO = staffService.listin(pageRequestDTO);
 		log.info(responseDTO);
 		
 		model.addAttribute("responseDTO" ,responseDTO);
 	}
 	@GetMapping("/listout")
 	public void listout(PageRequestDTO pageRequestDTO, Model model) {
-		PageResponseDTO<StaffDTO> responseDTO = staffService.list(pageRequestDTO);
+		PageResponseDTO<StaffDTO> responseDTO = staffService.listout(pageRequestDTO);
 		log.info(responseDTO);
 		
 		model.addAttribute("responseDTO" ,responseDTO);

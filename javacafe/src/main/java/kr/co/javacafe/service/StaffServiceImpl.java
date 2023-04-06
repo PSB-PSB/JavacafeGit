@@ -91,5 +91,43 @@ public class StaffServiceImpl implements StaffService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public PageResponseDTO<StaffDTO> listin(PageRequestDTO pageRequestDTO) {
+		String[] types = pageRequestDTO.getTypes();
+		String keyword = pageRequestDTO.getKeyword();
+		Pageable pageable = pageRequestDTO.getPageable("sno");
+		
+		Page<Staff> result = staffRepository.searcAll(types, keyword, pageable);
+		
+		List<StaffDTO> dtoList = result.getContent().stream()
+				.map(staff -> modelMapper.map(staff, StaffDTO.class)).
+				collect(Collectors.toList());
+		
+		return PageResponseDTO.<StaffDTO>withAll()
+				.pageRequestDTO(pageRequestDTO)
+				.dtoList(dtoList)
+				.total((int)result.getTotalElements())
+				.build();
+	}
+
+	@Override
+	public PageResponseDTO<StaffDTO> listout(PageRequestDTO pageRequestDTO) {
+		String[] types = pageRequestDTO.getTypes();
+		String keyword = pageRequestDTO.getKeyword();
+		Pageable pageable = pageRequestDTO.getPageable("sno");
+		
+		Page<Staff> result = staffRepository.searcAll(types, keyword, pageable);
+		
+		List<StaffDTO> dtoList = result.getContent().stream()
+				.map(staff -> modelMapper.map(staff, StaffDTO.class)).
+				collect(Collectors.toList());
+		
+		return PageResponseDTO.<StaffDTO>withAll()
+				.pageRequestDTO(pageRequestDTO)
+				.dtoList(dtoList)
+				.total((int)result.getTotalElements())
+				.build();
+	}
 	
 }
